@@ -23,6 +23,12 @@ def _get_model():
         )
     return _model
 
+def unload_model():
+    global _model
+    _model = None
+    import gc
+    gc.collect()
+
 
 def _fetch_info_and_captions(url, workdir):
     opts = {

@@ -1,15 +1,19 @@
-import os
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, HttpUrl
-from psycopg_pool import ConnectionPool
-from psycopg.rows import dict_row
 
-pool = ConnectionPool(
-    os.environ["DATABASE_URL"],
-    kwargs={"row_factory": dict_row},
-    open=True,
-)
-app = FastAPI(title="Recipe API")
+from app.db import pool
+from app.worker import start_worker
+
+
+@asynccontextmanager
+async def lifespan(app):
+    start_worker()
+    yield
+
+
+app = FastAPI(title="Recipe API", lifespan=lifespan)
 
 
 class ImportRequest(BaseModel):
