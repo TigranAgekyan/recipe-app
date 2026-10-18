@@ -1,0 +1,93 @@
+.ingredients__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ingredient {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  width: 100%;
+  min-height: 56px;
+  padding: 0.75rem 0.875rem;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+  text-align: left;
+  transition: background-color 0.15s ease, opacity 0.2s ease;
+}
+
+.ingredient:active {
+  background: var(--surface-container);
+  box-shadow: var(--shadow-press);
+}
+
+.ingredient__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ingredient__line {
+  font-size: 17px;
+  line-height: 23px;
+  font-weight: 500;
+}
+
+.ingredient__amount {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.ingredient__note {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-muted);
+}
+
+.ingredient--done {
+  opacity: 0.45;
+  box-shadow: none;
+  background: var(--surface-low);
+}
+
+.ingredient--done .ingredient__line {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+.kitchen .ingredient__line {
+  font-size: 19px;
+  line-height: 26px;
+}
+
+.kitchen .ingredient__note {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+/* Tactile checkbox from the design system: 28px, 6px radius, herb fill when checked */
+.checkbox {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  background: var(--surface-low);
+  color: #fff;
+}
+
+.ingredient--done .checkbox {
+  border-color: var(--secondary);
+  background: var(--secondary);
+}
+
+.checkbox .icon {
+  font-size: 20px;
+}

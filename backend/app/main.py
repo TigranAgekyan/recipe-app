@@ -29,7 +29,7 @@ def health():
 def list_recipes():
     with pool.connection() as conn:
         return conn.execute(
-            "SELECT id, title, servings, total_time_minutes, created_at "
+            "SELECT id, title, source_url, servings, total_time_minutes, created_at "
             "FROM recipes ORDER BY created_at DESC"
         ).fetchall()
 
@@ -49,7 +49,7 @@ def get_recipe(recipe_id: int):
 def start_import(req: ImportRequest):
     with pool.connection() as conn:
         return conn.execute(
-            "INSERT INTO jobs (url) VALUES (%s) RETURNING id, status",
+            "INSERT INTO jobs (url) VALUES (%s) RETURNING id, url, status, error, recipe_id",
             (str(req.url),),
         ).fetchone()
 

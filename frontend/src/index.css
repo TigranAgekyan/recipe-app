@@ -1,111 +1,363 @@
+/* Design tokens from design/General-DESIGN.md ("Warm Editorial Culinary PWA") */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --bg: #fff8f5;
+  --surface: #ffffff;
+  --surface-low: #fdf1ec;
+  --surface-container: #f8ebe6;
+  --surface-high: #f2e6e1;
+  --surface-highest: #ece0db;
+  --text: #201a18;
+  --text-muted: #59413c;
+  --outline: #8c716a;
+  --border: #eae4dc;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --primary: #9b280b;
+  --primary-container: #bd4022;
+  --on-primary: #ffffff;
+  --primary-soft: #ffdad2;
+  --on-primary-soft: #8a1c00;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --secondary: #476552;
+  --on-secondary: #ffffff;
+  --secondary-soft: #c9ebd3;
+  --on-secondary-soft: #304d3c;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --tertiary: #873d00;
+  --tertiary-soft: #ffdbc9;
+  --on-tertiary-soft: #753400;
+  --amber: #d97736;
+  --amber-wash: rgba(217, 119, 54, 0.14);
+  --alarm: #a95211;
+
+  --error: #ba1a1a;
+  --error-soft: #ffdad6;
+  --on-error-soft: #93000a;
+
+  --glass: rgba(255, 248, 245, 0.85);
+  --shadow-1: 0 4px 16px -2px rgba(44, 38, 35, 0.06);
+  --shadow-2: 0 12px 32px -4px rgba(44, 38, 35, 0.14);
+  --shadow-press: inset 0 1px 3px rgba(44, 38, 35, 0.15);
+  --scrim: rgba(32, 26, 24, 0.4);
+
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --gutter: 1rem;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --content-width: 40rem;
+
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+    --bg: #181513;
+    --surface: #24201d;
+    --surface-low: #1f1b19;
+    --surface-container: #2b2623;
+    --surface-high: #332d29;
+    --surface-highest: #3b3430;
+    --text: #f5efeb;
+    --text-muted: #d4c0b8;
+    --outline: #a08c85;
+    --border: #36302b;
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+    --primary: #e98a72;
+    --primary-container: #b8492d;
+    --on-primary: #ffffff;
+    --primary-soft: #4a1f14;
+    --on-primary-soft: #ffb4a3;
+
+    --secondary: #6a8a77;
+    --on-secondary: #ffffff;
+    --secondary-soft: #24392c;
+    --on-secondary-soft: #adceb8;
+
+    --tertiary: #ffb68c;
+    --tertiary-soft: #4a2a12;
+    --on-tertiary-soft: #ffc9a8;
+    --amber: #e8955c;
+    --amber-wash: rgba(232, 149, 92, 0.16);
+    --alarm: #b65a1a;
+
+    --error: #ffb4ab;
+    --error-soft: #5c1a17;
+    --on-error-soft: #ffdad6;
+
+    --glass: rgba(24, 21, 19, 0.85);
+    --shadow-1: 0 4px 16px -2px rgba(0, 0, 0, 0.3);
+    --shadow-2: 0 12px 32px -4px rgba(0, 0, 0, 0.5);
+    --shadow-press: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+    --scrim: rgba(0, 0, 0, 0.55);
+
+    color-scheme: dark;
   }
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--bg);
 }
 
 body {
   margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
 }
 
 h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
+h2,
+h3,
 p {
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+input {
+  font: inherit;
+  /* 16px+ stops iOS from zooming on focus */
+  font-size: 16px;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-container);
+  outline-offset: 2px;
+}
+
+/* Material Symbols (subset loaded in index.html) */
+.icon {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  flex-shrink: 0;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+}
+
+.icon--fill {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Shared type styles */
+.headline-xl {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.headline-lg {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.headline-md {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.label-caps {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Page wrapper: content column with side gutters and room for the bottom dock
+   (--dock-height is measured in Layout.tsx and already includes the safe area) */
+.page {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter) calc(var(--dock-height, 6rem) + 1.5rem);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.12s ease, background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: var(--primary-container);
+  color: var(--on-primary);
+  box-shadow: 0 6px 16px -6px rgba(189, 64, 34, 0.55);
+}
+
+.btn--primary:disabled {
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+.btn--ghost {
+  border: 1.5px solid var(--secondary);
+  color: var(--secondary);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--small {
+  min-height: 36px;
+  padding: 0 0.875rem;
+  font-size: 13px;
+}
+
+/* Small pill buttons used inside cards */
+.chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 36px;
+  padding: 0 0.875rem;
+  border-radius: 9999px;
+  background: var(--surface-container);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 0.12s ease, background-color 0.15s ease;
+}
+
+.chip-btn:active {
+  transform: scale(0.96);
+  box-shadow: var(--shadow-press);
+}
+
+.chip-btn .icon {
+  font-size: 18px;
+}
+
+/* Generic card surface */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    border: 1px solid var(--border);
+  }
+}
+
+/* Shared animations */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes timer-pulse {
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--amber) 35%, transparent);
+  }
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-container) 25%, var(--surface-high) 50%, var(--surface-container) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

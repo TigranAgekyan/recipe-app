@@ -1,0 +1,106 @@
+.step-timer__start {
+  background: var(--amber-wash);
+  color: var(--on-tertiary-soft);
+}
+
+.step-timer__start .icon {
+  color: var(--tertiary);
+}
+
+.step-timer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 0.875rem;
+  border-radius: var(--radius-md);
+  background: var(--amber-wash);
+  --ring-color: var(--tertiary);
+}
+
+.step-timer--paused {
+  background: var(--surface-container);
+  --ring-color: var(--outline);
+}
+
+.step-timer--ringing {
+  background: var(--alarm);
+  color: #fff;
+  --ring-color: #fff;
+  animation: timer-pulse 1s ease-in-out infinite;
+}
+
+.step-timer--ringing .ring__track {
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+.step-timer__display {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.step-timer .ring .icon {
+  font-size: 24px;
+  color: var(--ring-color);
+}
+
+.step-timer__readout {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.step-timer__label {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.step-timer__status {
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.step-timer__clock {
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.step-timer__controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.step-timer__controls .btn {
+  flex: 1;
+  min-height: 44px;
+  font-size: 15px;
+}
+
+.step-timer__main {
+  background: var(--primary-container);
+  color: var(--on-primary);
+}
+
+.step-timer__secondary {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.step-timer--ringing .step-timer__main {
+  background: #fff;
+  color: var(--on-tertiary-soft);
+}
+
+.step-timer--ringing .step-timer__secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+

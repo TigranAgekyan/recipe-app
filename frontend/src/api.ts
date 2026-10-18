@@ -14,13 +14,13 @@ export type Step = {
 export type RecipeSummary = {
   id: number;
   title: string;
+  source_url: string | null;
   servings: number | null;
   total_time_minutes: number | null;
   created_at: string;
 };
 
 export type Recipe = RecipeSummary & {
-  source_url: string | null;
   ingredients: Ingredient[];
   steps: Step[];
 };
@@ -33,9 +33,30 @@ export type Job = {
   recipe_id: number | null;
 };
 
+export class ApiError extends Error {
+  status: number;
+
+  constructor(status: number, message: string) {
+    super(message);
+    this.status = status;
+  }
+}
+
+// FastAPI errors look like {"detail": "..."} or {"detail": [{"msg": "..."}]}
+function errorMessage(body: string): string {
+  try {
+    const { detail } = JSON.parse(body);
+    if (typeof detail === "string") return detail;
+    if (Array.isArray(detail) && detail[0]?.msg) return detail[0].msg;
+  } catch {
+    // not JSON, fall through
+  }
+  return body || "Request failed";
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`/api${path}`, init);
-  if (!res.ok) throw new Error(`${res.status} ${await res.text()}`);
+  if (!res.ok) throw new ApiError(res.status, errorMessage(await res.text()));
   return res.json();
 }
 

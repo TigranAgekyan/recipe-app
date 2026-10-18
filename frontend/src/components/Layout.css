@@ -1,0 +1,45 @@
+.bottom-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  /* Let taps through the empty space around the pills */
+  pointer-events: none;
+}
+
+.bottom-dock__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter) calc(1rem + var(--safe-bottom));
+}
+
+.bottom-dock__inner > * {
+  pointer-events: auto;
+}
+
+.bottom-dock__fab {
+  align-self: center;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin-top: 0.25rem;
+  border-radius: 9999px;
+  background: var(--primary-container);
+  color: var(--on-primary);
+  box-shadow: 0 10px 24px -6px rgba(189, 64, 34, 0.6), 0 0 0 4px var(--bg);
+  transition: transform 0.12s ease;
+}
+
+.bottom-dock__fab:active {
+  transform: scale(0.94);
+}
+
+.bottom-dock__fab .icon {
+  font-size: 32px;
+}

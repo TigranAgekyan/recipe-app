@@ -1,0 +1,40 @@
+.detail-page {
+  padding-top: 0.25rem;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail > section {
+  margin-top: 0.75rem;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-head__count {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.section-head__action {
+  min-height: 36px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.section-head__hint {
+  margin: 0.25rem 0 1rem;
+  font-size: 14px;
+  line-height: 20px;
+}

@@ -1,0 +1,35 @@
+.list-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+}
+
+.list-page__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.list-page__jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.list-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+/* iPad / landscape: two cards per row */
+@media (min-width: 600px) {
+  .page.list-page {
+    max-width: 56rem;
+  }
+
+  .list-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
