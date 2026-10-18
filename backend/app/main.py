@@ -54,6 +54,18 @@ def start_import(req: ImportRequest):
         ).fetchone()
 
 
+@app.get("/jobs")
+def list_jobs():
+    """Running jobs plus recent failures, so the UI can show imports started elsewhere."""
+    with pool.connection() as conn:
+        return conn.execute(
+            "SELECT id, url, status, error, recipe_id FROM jobs "
+            "WHERE status IN ('pending', 'processing') "
+            "OR (status = 'failed' AND updated_at > now() - interval '1 hour') "
+            "ORDER BY created_at DESC"
+        ).fetchall()
+
+
 @app.get("/jobs/{job_id}")
 def get_job(job_id: int):
     with pool.connection() as conn:

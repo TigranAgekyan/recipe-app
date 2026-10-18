@@ -64,6 +64,7 @@ export const api = {
   listRecipes: () => request<RecipeSummary[]>("/recipes"),
   getRecipe: (id: number) => request<Recipe>(`/recipes/${id}`),
   getJob: (id: number) => request<Job>(`/jobs/${id}`),
+  listJobs: () => request<Job[]>("/jobs"),
   startImport: (url: string) =>
     request<Job>("/import", {
       method: "POST",
