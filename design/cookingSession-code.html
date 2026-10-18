@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-background": "#201a18", "primary-fixed": "#ffdad2", "on-primary-fixed": "#3d0700", "on-tertiary-container": "#ffe7dc", "on-error": "#ffffff", "on-tertiary-fixed": "#321200", "inverse-on-surface": "#faeee9", "on-primary": "#ffffff", "background": "#fff8f5", "surface-tint": "#ac3417", "tertiary-container": "#a95211", "surface-bright": "#fff8f5", "surface-container-low": "#fdf1ec", "surface-dim": "#e3d8d3", "tertiary": "#873d00", "on-tertiary": "#ffffff", "surface": "#fff8f5", "primary": "#9b280b", "surface-container-lowest": "#ffffff", "outline-variant": "#e0bfb8", "primary-fixed-dim": "#ffb4a3", "inverse-primary": "#ffb4a3", "on-secondary-fixed-variant": "#304d3c", "on-primary-fixed-variant": "#8a1c00", "tertiary-fixed-dim": "#ffb68c", "error": "#ba1a1a", "on-secondary-container": "#4d6b58", "surface-container-high": "#f2e6e1", "on-primary-container": "#ffe7e2", "on-surface-variant": "#59413c", "error-container": "#ffdad6", "on-error-container": "#93000a", "on-secondary-fixed": "#032112", "secondary-fixed": "#c9ebd3", "secondary-fixed-dim": "#adceb8", "secondary": "#476552", "outline": "#8c716a", "inverse-surface": "#352f2c", "tertiary-fixed": "#ffdbc9", "surface-container": "#f8ebe6", "surface-container-highest": "#ece0db", "surface-variant": "#ece0db", "on-tertiary-fixed-variant": "#753400", "primary-container": "#bd4022", "on-surface": "#201a18", "secondary-container": "#c9ebd3", "on-secondary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "margin-desktop": "3rem", "gutter": "1rem", "gutter-desktop": "2rem", "space-md": "1rem", "margin": "1rem", "space-lg": "1.5rem", "margin-tablet": "2rem", "gutter-tablet": "1.5rem" }, "fontFamily": { "label-prominent": ["Inter"], "title-lg": ["Inter"], "headline-xl-mobile": ["Playfair Display"], "headline-lg-mobile": ["Playfair Display"], "body-default": ["Inter"], "label-compact": ["Inter"], "headline-xl": ["Playfair Display"], "body-cooking-large": ["Inter"], "body-muted": ["Inter"], "title-md": ["Inter"], "headline-lg": ["Playfair Display"], "headline-md": ["Playfair Display"] }, "fontSize": { "label-prominent": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }], "title-lg": ["19px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "body-default": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-compact": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-cooking-large": ["19px", { "lineHeight": "30px", "fontWeight": "400" }], "body-muted": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "title-md": ["17px", { "lineHeight": "22px", "fontWeight": "600" }], "headline-lg": ["30px", { "lineHeight": "38px", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "500" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 0.5rem);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-default text-body-default text-on-surface flex flex-col min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed dark"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(44,38,35,0.04)] pt-safe"><div class="flex items-center justify-between px-space-md h-12 w-full text-on-surface"><span class="font-label-prominent text-label-prominent font-semibold tracking-tight text-on-surface">9:41</span><div class="h-4 w-28 bg-on-surface/90 rounded-full mx-auto"></div><div class="flex items-center gap-space-xs text-on-surface"><span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[18px]">battery_full</span></div></div><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors active:scale-95" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><img alt="Simmer App Icon" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VlbyGHbrLF2al5VKhq6eDb6JHISDHzf-wslpSmMhTBG3-gh1hU1FGk9CW7rABJYrcB42mbvo5VKl35D96naIBlo6DIn_9tEwrd2Msjm9MmiWGiybgxHfffeXDU3gpN0FenXHMsTzSPXKV9-TaPkGVIUZdHt_km9DDUIhO2ssqYqn2hVOis38YJXeVMPASUnWIv9uBk1BFWJlkLbvyrXw8TtBBD3Fb-x6uNLqGZau425BheG_iGxpR-JA"><h1 class="font-headline-md text-headline-md font-semibold text-on-surface truncate ml-space-xs">Recipe Detail</h1></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">bookmark_border</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-28 pb-safe bg-surface px-space-md flex-1"><div class="flex flex-col w-full pb-24">
+<!-- Top Utility Bar: Dark Kitchen Switch & Ambient Status -->
+<div class="flex items-center justify-between py-2 mb-3">
+<div class="flex items-center gap-space-xs text-secondary">
+
+
+</div>
+
+</div>
+<!-- Hero Media Card with YouTube Direct Badge -->
+<div class="relative w-full rounded-xl overflow-hidden shadow-md bg-surface-container mb-4">
+<div class="relative aspect-[16/10] w-full">
+<img class="w-full h-full object-cover" data-alt="Golden crisp-skinned chicken thighs sizzling in a seasoned vintage black cast-iron skillet, resting on a rustic farmhouse wooden tabletop beside fresh whole thyme sprigs, coarse kosher flake salt, and warm natural morning window light, high-end food editorial style reminiscent of Alison Roman and The Kinfolk Table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVD8BH5H1gQJ_OJTfAZNtGUNnivd1Gb4fO2L5UX72_IRNb70WTOZbjauyuSYzdgi1hXgzKvNV-YAbC8Js1OujADECQQOJ8hI8UBXRIWHzmV5MUfLaRv8TGrkWI7zXkneDqaf9V9jGBt_Z_9Ct5sKbVBw5MP_ZAba1YsR0NTTeDMSPsb9PTZUVVq2Yc_Sl9kP8hx5yYrWGJ2OoB2QsiUq9f9ESFD_uugwzMYXqtFnE-kSks9gw_OazT">
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/70 via-transparent to-black/20"></div>
+<!-- Floating Direct YouTube External Pill -->
+<a class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm text-on-surface text-label-compact font-label-prominent hover:bg-surface active:scale-95 transition-all" href="https://youtube.com" rel="noopener noreferrer" target="_blank">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block animate-pulse"></span>
+<span class="">Watch on YouTube ↗ (12:40)</span>
+</a>
+<!-- Quick Pill Badges on media corner -->
+<div class="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface px-2.5 py-1 rounded-full text-label-compact font-label-prominent shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">timer</span> 35 Mins Total
+        </span>
+<span class="bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface px-2.5 py-1 rounded-full text-label-compact font-label-prominent shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">group</span> 4 Servings
+        </span>
+</div>
+</div>
+</div>
+<!-- Title & Cook Overview -->
+<div class="flex flex-col gap-2 mb-5">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface leading-tight">
+      Crispy Cast Iron Chicken Thighs with Garlic Pan Sauce
+    </h1>
+<p class="font-body-default text-body-muted text-on-surface-variant">
+      A foolproof slow-render technique delivering deeply crackling skin, aromatic pan juices, and tender meat using one single skillet.
+    </p>
+<!-- Preparation Chips Cluster -->
+<div class="flex items-center gap-2 pt-1">
+
+
+
+</div>
+</div>
+<!-- Kitchen Readability Mode Banner / Toggle -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low shadow-sm mb-6 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface leading-tight">Kitchen Mode</p>
+<p class="font-label-compact text-label-compact text-on-surface-variant">Enlarge type &amp; prevent device sleeping</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input class="sr-only peer" id="kitchenModeSwitch" onchange="toggleKitchenScale(this)" type="checkbox">
+<div class="w-12 h-6 bg-surface-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Ingredients Section (Arm's-Length Touch Targets) -->
+<section class="flex flex-col mb-8" id="ingredientsContainer">
+<div class="flex items-baseline justify-between mb-1.5">
+<h2 class="font-headline-md text-headline-md text-on-surface">Ingredients <span class="font-body-default text-body-muted text-on-surface-variant font-normal">(8 items)</span></h2>
+<button class="text-label-compact font-label-prominent text-primary active:opacity-70" onclick="resetIngredients()">Clear Checks</button>
+</div>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-3.5">
+      Tap ingredients as you prep at the counter to cross them off.
+    </p>
+<div class="flex flex-col gap-2" id="ingredientList">
+<!-- Item 1 -->
+<button class="group w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container transition-all text-left" onclick="toggleIngredient(this)" type="button">
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<div class="check-box w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-surface opacity-0 check-icon">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface ingredient-text transition-all leading-snug">
+<strong class="font-semibold text-primary">6</strong> bone-in, skin-on chicken thighs
+            </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant ingredient-sub">trimmed and patted dry</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-[18px] flex-shrink-0">drag_handle</span>
+</button>
+<!-- Item 2 -->
+<button class="group w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container transition-all text-left" onclick="toggleIngredient(this)" type="button">
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<div class="check-box w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-surface opacity-0 check-icon">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface ingredient-text transition-all leading-snug">
+<strong class="font-semibold text-primary">1 tbsp</strong> kosher salt
+            </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant ingredient-sub">coarse Diamond Crystal flake</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-[18px] flex-shrink-0">drag_handle</span>
+</button>
+<!-- Item 3 -->
+<button class="group w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container transition-all text-left" onclick="toggleIngredient(this)" type="button">
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<div class="check-box w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-surface opacity-0 check-icon">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface ingredient-text transition-all leading-snug">
+<strong class="font-semibold text-primary">1 tsp</strong> freshly cracked black pepper
+            </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant ingredient-sub">medium-coarse butcher grind</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-[18px] flex-shrink-0">drag_handle</span>
+</button>
+<!-- Item 4 -->
+<button class="group w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container transition-all text-left" onclick="toggleIngredient(this)" type="button">
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<div class="check-box w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-surface opacity-0 check-icon">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface ingredient-text transition-all leading-snug">
+<strong class="font-semibold text-primary">2 tbsp</strong> neutral cooking oil
+            </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant ingredient-sub">avocado, grapeseed, or sunflower</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-[18px] flex-shrink-0">drag_handle</span>
+</button>
+<!-- Item 5 -->
+<button class="group w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container transition-all text-left" onclick="toggleIngredient(this)" type="button">
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<div class="check-box w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-surface opacity-0 check-icon">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface ingredient-text transition-all leading-snug">
+<strong class="font-semibold text-primary">4 cloves</strong> fresh garlic
+            </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant ingredient-sub">smashed with side of blade and peeled</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-[18px] flex-shrink-0">drag_handle</span>
+</button>
+<!-- Item 6 -->
+<button class="group w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container transition-all text-left" onclick="toggleIngredient(this)" type="button">
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<div class="check-box w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-surface opacity-0 check-icon">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface ingredient-text transition-all leading-snug">
+<strong class="font-semibold text-primary">4 sprigs</strong> fresh thyme
+            </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant ingredient-sub">whole wood sprigs (leaves intact)</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-[18px] flex-shrink-0">drag_handle</span>
+</button>
+<!-- Item 7 -->
+<button class="group w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container transition-all text-left" onclick="toggleIngredient(this)" type="button">
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<div class="check-box w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-surface opacity-0 check-icon">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface ingredient-text transition-all leading-snug">
+<strong class="font-semibold text-primary">1/2 cup</strong> dry white wine
+            </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant ingredient-sub">Sauvignon Blanc or rich low-sodium chicken stock</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-[18px] flex-shrink-0">drag_handle</span>
+</button>
+<!-- Item 8 (Missing unit handled gracefully) -->
+<button class="group w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest shadow-sm active:bg-surface-container transition-all text-left" onclick="toggleIngredient(this)" type="button">
+<div class="flex items-center gap-3.5 min-w-0 pr-2">
+<div class="check-box w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-surface opacity-0 check-icon">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface ingredient-text transition-all leading-snug">
+              Fresh Italian parsley
+            </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant ingredient-sub">to taste, finely chopped for finishing</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-[18px] flex-shrink-0">drag_handle</span>
+</button>
+</div>
+</section>
+<!-- Numbered Step-by-Step Instructions -->
+<section class="flex flex-col mb-10" id="stepsSection">
+<div class="flex items-center justify-between mb-1">
+<h2 class="font-headline-md text-headline-md text-on-surface">Instructions</h2>
+<span class="font-label-compact text-label-compact text-on-surface-variant" id="stepProgressCounter">0 of 4 Completed</span>
+</div>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-4">
+      Glanceable instructions tuned for kitchen counters. Tap "Mark Step Done" as you cook.
+    </p>
+<div class="flex flex-col gap-4">
+<!-- Step 01 -->
+<div class="step-card p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 transition-all" data-step="1">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-md bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-prominent text-label-prominent">
+            STEP 01
+          </span>
+
+</div>
+<p class="step-body font-body-cooking-large text-body-cooking-large text-on-surface font-normal leading-relaxed">
+          Season chicken generously on all sides with salt and black pepper. Let sit at room temperature for 15 minutes to take off chill.
+        </p>
+<div class="flex items-center justify-between pt-1">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-compact text-label-compact active:scale-95 transition-all" onclick="startTimer(15, this)" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">timer</span>
+<span class="">Set 15m Timer</span>
+</button>
+<button class="step-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-prominent text-label-prominent active:scale-95 transition-all" onclick="toggleStepDone(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">Mark Step Done</span>
+</button>
+</div>
+</div>
+<!-- Step 02 -->
+<div class="step-card p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 transition-all" data-step="2">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-md bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-prominent text-label-prominent">
+            STEP 02
+          </span>
+
+</div>
+<p class="step-body font-body-cooking-large text-body-cooking-large text-on-surface font-normal leading-relaxed">
+          Place thighs skin-side down in a cold cast iron skillet. Turn heat to medium-low to slowly render fat until skin is deep golden brown and crisp (approx 14 minutes).
+        </p>
+<div class="p-2.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-compact text-label-compact flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px] mt-0.5">lightbulb</span>
+<span class="">Chef's secret: Starting cold releases fat without burning the skin. Do not touch or move them until naturally released!</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-compact text-label-compact active:scale-95 transition-all" onclick="startTimer(14, this)" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">timer</span>
+<span class="">Set 14m Timer</span>
+</button>
+<button class="step-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-prominent text-label-prominent active:scale-95 transition-all" onclick="toggleStepDone(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">Mark Step Done</span>
+</button>
+</div>
+</div>
+<!-- Step 03 -->
+<div class="step-card p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 transition-all" data-step="3">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-md bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-prominent text-label-prominent">
+            STEP 03
+          </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">thermostat</span> 165°F (74°C)
+          </span>
+</div>
+<p class="step-body font-body-cooking-large text-body-cooking-large text-on-surface font-normal leading-relaxed">
+          Flip chicken thighs, add smashed garlic cloves and thyme sprigs. Cook for another 6–8 minutes until internal temperature registers 165°F (74°C).
+        </p>
+<div class="flex items-center justify-between pt-1">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-compact text-label-compact active:scale-95 transition-all" onclick="startTimer(7, this)" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">timer</span>
+<span class="">Set 7m Timer</span>
+</button>
+<button class="step-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-prominent text-label-prominent active:scale-95 transition-all" onclick="toggleStepDone(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">Mark Step Done</span>
+</button>
+</div>
+</div>
+<!-- Step 04 -->
+<div class="step-card p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 transition-all" data-step="4">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-md bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-prominent text-label-prominent">
+            STEP 04
+          </span>
+<span class="font-label-compact text-label-compact text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">dinner_dining</span> Finish &amp; Sauce
+          </span>
+</div>
+<p class="step-body font-body-cooking-large text-body-cooking-large text-on-surface font-normal leading-relaxed">
+          Transfer chicken to a warm plate. Deglaze skillet with white wine, scraping up browned bits, and simmer until sauce thickens. Spoon glossy sauce around chicken and garnish with parsley.
+        </p>
+<div class="flex items-center justify-end pt-1">
+<button class="step-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-prominent text-label-prominent active:scale-95 transition-all" onclick="toggleStepDone(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="">Mark Step Done</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Persistent Bottom Action Bar (Kitchen Cook Session) -->
+<div class="fixed bottom-3 left-0 right-0 px-4 z-40 max-w-[390px] mx-auto">
+<div class="p-2 rounded-full bg-surface-container-lowest/90 backdrop-blur-xl shadow-xl flex items-center justify-between gap-2">
+<!-- Quick Kitchen Timer Bubble -->
+<button class="flex items-center gap-1 px-3 py-2.5 rounded-full bg-surface-container text-on-surface font-label-prominent text-label-prominent active:scale-95 transition-all" id="floatingTimerBtn" onclick="toggleQuickTimer()">
+<span class="material-symbols-outlined text-[18px] text-tertiary">timer</span>
+<span id="quickTimerDisplay" class="">Timer</span>
+</button>
+<!-- Primary Action: Start Cook Session -->
+<button class="flex-1 py-3 px-4 rounded-full bg-primary-container text-on-primary font-title-md text-title-md font-semibold shadow-md active:scale-98 transition-all flex items-center justify-center gap-2" id="mainActionBtn" onclick="handlePrimarySession(this)">
+<span class="material-symbols-outlined text-[20px]">soup_kitchen</span>
+<span class="">Start Kitchen Session</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  let completedStepsCount = 0;
+  let kitchenDarkMode = false;
+  let isKitchenZoomed = false;
+  let timerInterval = null;
+  let timerSecondsLeft = 0;
+
+  function toggleIngredient(buttonEl) {
+    const box = buttonEl.querySelector('.check-box');
+    const icon = buttonEl.querySelector('.check-icon');
+    const text = buttonEl.querySelector('.ingredient-text');
+    const sub = buttonEl.querySelector('.ingredient-sub');
+
+    const isChecked = box.classList.contains('bg-secondary');
+
+    if (!isChecked) {
+      box.classList.remove('bg-surface-container-high');
+      box.classList.add('bg-secondary');
+      icon.classList.remove('opacity-0');
+      text.classList.add('line-through', 'opacity-40');
+      if (sub) sub.classList.add('opacity-40');
+    } else {
+      box.classList.remove('bg-secondary');
+      box.classList.add('bg-surface-container-high');
+      icon.classList.add('opacity-0');
+      text.classList.remove('line-through', 'opacity-40');
+      if (sub) sub.classList.remove('opacity-40');
+    }
+  }
+
+  function resetIngredients() {
+    const items = document.querySelectorAll('#ingredientList button');
+    items.forEach(btn => {
+      const box = btn.querySelector('.check-box');
+      const icon = btn.querySelector('.check-icon');
+      const text = btn.querySelector('.ingredient-text');
+      const sub = btn.querySelector('.ingredient-sub');
+
+      box.classList.remove('bg-secondary');
+      box.classList.add('bg-surface-container-high');
+      icon.classList.add('opacity-0');
+      text.classList.remove('line-through', 'opacity-40');
+      if (sub) sub.classList.remove('opacity-40');
+    });
+  }
+
+  function toggleStepDone(btn) {
+    const card = btn.closest('.step-card');
+    const body = card.querySelector('.step-body');
+    const isDone = card.classList.contains('bg-secondary-container/30');
+
+    if (!isDone) {
+      card.classList.add('bg-secondary-container/30');
+      card.classList.remove('bg-surface-container-lowest');
+      body.classList.add('opacity-60');
+      btn.classList.add('bg-secondary', 'text-on-secondary');
+      btn.classList.remove('bg-surface-container-high', 'text-on-surface');
+      btn.querySelector('span:last-child').textContent = 'Completed';
+      completedStepsCount++;
+    } else {
+      card.classList.remove('bg-secondary-container/30');
+      card.classList.add('bg-surface-container-lowest');
+      body.classList.remove('opacity-60');
+      btn.classList.remove('bg-secondary', 'text-on-secondary');
+      btn.classList.add('bg-surface-container-high', 'text-on-surface');
+      btn.querySelector('span:last-child').textContent = 'Mark Step Done';
+      completedStepsCount = Math.max(0, completedStepsCount - 1);
+    }
+
+    const counter = document.getElementById('stepProgressCounter');
+    counter.textContent = `${completedStepsCount} of 4 Completed`;
+
+    const mainBtn = document.getElementById('mainActionBtn');
+    if (completedStepsCount === 4) {
+      mainBtn.classList.remove('bg-primary-container');
+      mainBtn.classList.add('bg-secondary');
+      mainBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">celebration</span><span>Recipe Completed!</span>';
+    } else {
+      mainBtn.classList.add('bg-primary-container');
+      mainBtn.classList.remove('bg-secondary');
+      mainBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">soup_kitchen</span><span>Cooking In Progress</span>';
+    }
+  }
+
+  function toggleKitchenScale(checkbox) {
+    const ingredientTexts = document.querySelectorAll('.ingredient-text');
+    const stepTexts = document.querySelectorAll('.step-body');
+    
+    if (checkbox.checked) {
+      ingredientTexts.forEach(el => el.classList.add('text-title-lg'));
+      stepTexts.forEach(el => el.classList.add('text-headline-md'));
+    } else {
+      ingredientTexts.forEach(el => el.classList.remove('text-title-lg'));
+      stepTexts.forEach(el => el.classList.remove('text-headline-md'));
+    }
+  }
+
+  function toggleKitchenDark() {
+    kitchenDarkMode = !kitchenDarkMode;
+    const bodyEl = document.body;
+    const toggleLabel = document.getElementById('darkToggleText');
+
+    if (kitchenDarkMode) {
+      bodyEl.classList.add('dark');
+      toggleLabel.textContent = 'Daylight Mode';
+    } else {
+      bodyEl.classList.remove('dark');
+      toggleLabel.textContent = 'Dark Skillet Mode';
+    }
+  }
+
+  function startTimer(minutes, triggerBtn) {
+    clearInterval(timerInterval);
+    timerSecondsLeft = minutes * 60;
+    const display = document.getElementById('quickTimerDisplay');
+    triggerBtn.classList.add('bg-tertiary-fixed', 'text-on-tertiary-fixed-variant');
+
+    timerInterval = setInterval(() => {
+      if (timerSecondsLeft <= 0) {
+        clearInterval(timerInterval);
+        display.textContent = 'Done!';
+        return;
+      }
+      timerSecondsLeft--;
+      const m = Math.floor(timerSecondsLeft / 60);
+      const s = timerSecondsLeft % 60;
+      display.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
+    }, 1000);
+
+    const m = Math.floor(timerSecondsLeft / 60);
+    const s = timerSecondsLeft % 60;
+    display.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
+  }
+
+  function toggleQuickTimer() {
+    const display = document.getElementById('quickTimerDisplay');
+    if (timerSecondsLeft > 0 && timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      display.textContent = 'Paused';
+    } else {
+      startTimer(10, document.getElementById('floatingTimerBtn'));
+    }
+  }
+
+  function handlePrimarySession(btn) {
+    if (completedStepsCount === 4) {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span><span>Saved to History</span>';
+      return;
+    }
+    const nextIncomplete = document.querySelector('.step-card:not(.bg-secondary-container\\/30)');
+    if (nextIncomplete) {
+      nextIncomplete.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      nextIncomplete.classList.add('scale-[1.02]');
+      setTimeout(() => nextIncomplete.classList.remove('scale-[1.02]'), 400);
+    }
+  }
+</script><div class="w-32 h-1 bg-on-surface/20 rounded-full mx-auto mt-6 mb-2"></div></main>
+
+</body></html>

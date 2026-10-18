@@ -24,3 +24,19 @@ services:
     depends_on:
       - db
     mem_limit: 2g
+  frontend:
+    image: node:22-alpine
+    user: "1000:1000"
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "8101:5173"
+    depends_on:
+      - backend
+    mem_limit: 512m
+  pot:
+    image: brainicism/bgutil-ytdlp-pot-provider
+    restart: unless-stopped
+    mem_limit: 256m

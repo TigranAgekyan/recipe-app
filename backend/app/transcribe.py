@@ -12,6 +12,12 @@ from faster_whisper import WhisperModel
 
 _model = None
 
+BASE_OPTS = {
+    "quiet": True,
+    "extractor_args": {
+        "youtubepot-bgutilhttp": {"base_url": ["http://pot:4416"]},
+    },
+}
 
 def _get_model():
     global _model
@@ -32,16 +38,22 @@ def unload_model():
 
 def _fetch_info_and_captions(url, workdir):
     opts = {
+        **BASE_OPTS,
         "skip_download": True,
         "writesubtitles": True,
         "writeautomaticsub": True,
-        "subtitleslangs": ["en.*"],
+        "subtitleslangs": ["en", "en-orig"],
         "subtitlesformat": "json3",
         "outtmpl": f"{workdir}/%(id)s.%(ext)s",
-        "quiet": True,
     }
-    with yt_dlp.YoutubeDL(opts) as ydl:
-        return ydl.extract_info(url, download=True)
+    try:
+        with yt_dlp.YoutubeDL(opts) as ydl:
+            return ydl.extract_info(url, download=True)
+    except yt_dlp.utils.DownloadError:
+        # Captions failed (e.g. rate limited), so get metadata only.
+        # No caption file means get_transcript falls back to Whisper.
+        with yt_dlp.YoutubeDL({**BASE_OPTS, "skip_download": True}) as ydl:
+            return ydl.extract_info(url, download=False)
 
 
 def _captions_text(workdir):
@@ -61,9 +73,9 @@ def _captions_text(workdir):
 
 def _whisper_text(url, workdir):
     opts = {
+        **BASE_OPTS,
         "format": "bestaudio/best",
         "outtmpl": f"{workdir}/audio.%(ext)s",
-        "quiet": True,
     }
     with yt_dlp.YoutubeDL(opts) as ydl:
         ydl.download([url])

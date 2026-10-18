@@ -51,7 +51,7 @@ def _process(job):
                 recipe.servings,
                 recipe.total_time_minutes,
                 Jsonb([i.model_dump() for i in recipe.ingredients]),
-                Jsonb(recipe.steps),
+                Jsonb([s.model_dump() for s in recipe.steps]),
             ),
         ).fetchone()
     return row["id"]
