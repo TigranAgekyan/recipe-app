@@ -2,3 +2,5 @@ fastapi
 uvicorn[standard]
 psycopg[binary]
 psycopg-pool
+yt-dlp
+faster-whisper

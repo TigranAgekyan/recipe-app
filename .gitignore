@@ -2,3 +2,4 @@
 postgres/
 __pycache__/
 node_modules/
+models/
