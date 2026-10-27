@@ -42,7 +42,11 @@ export function ImportSheet({ open, onClose }: Props) {
             <Icon name="close" />
           </button>
         </div>
-        <p className="sheet__intro muted">Paste a cooking video or Shorts link to turn it into a clean recipe.</p>
+        <p className="sheet__intro muted">
+          {import.meta.env.MODE === "demo"
+            ? "This is a demo: paste any link and a sample recipe is added after a few seconds."
+            : "Paste a cooking video or Shorts link to turn it into a clean recipe."}
+        </p>
         <ImportForm onSubmitted={onClose} autoFocus />
       </div>
     </div>

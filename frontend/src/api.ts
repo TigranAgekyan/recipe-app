@@ -1,3 +1,5 @@
+import { demoApi } from "./demo/demoApi";
+
 export type Ingredient = {
   name: string;
   quantity: string | null;
@@ -60,7 +62,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return res.json();
 }
 
-export const api = {
+const backendApi = {
   listRecipes: () => request<RecipeSummary[]>("/recipes"),
   getRecipe: (id: number) => request<Recipe>(`/recipes/${id}`),
   getJob: (id: number) => request<Job>(`/jobs/${id}`),
@@ -72,3 +74,8 @@ export const api = {
       body: JSON.stringify({ url }),
     }),
 };
+
+// The demo build (`npm run build:demo`) swaps the backend for an in-memory
+// fake with sample recipes. MODE is fixed at build time, so regular builds
+// drop the demo code entirely.
+export const api = import.meta.env.MODE === "demo" ? demoApi : backendApi;
