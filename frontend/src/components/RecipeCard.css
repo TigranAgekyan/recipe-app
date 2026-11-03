@@ -29,6 +29,12 @@
   color: #ff4d3a;
 }
 
+.recipe-card__badge-logo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
 .recipe-card__body {
   display: flex;
   flex-direction: column;

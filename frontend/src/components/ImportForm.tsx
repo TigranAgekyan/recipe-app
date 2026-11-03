@@ -31,7 +31,7 @@ export function ImportForm({ onSubmitted, autoFocus }: Props) {
     e.preventDefault();
     const value = url.trim();
     if (!looksLikeUrl(value)) {
-      setError("That doesn't look like a link. Paste the full YouTube URL.");
+      setError("That doesn't look like a link. Paste the full URL.");
       return;
     }
     setSubmitting(true);
@@ -64,7 +64,7 @@ export function ImportForm({ onSubmitted, autoFocus }: Props) {
     <form className="import-form" onSubmit={submit} noValidate>
       <div className="import-form__label-row">
         <label htmlFor={inputId} className="import-form__label">
-          Video link
+          Recipe link
         </label>
         {canPaste && (
           <button type="button" className="import-form__paste" onClick={paste}>
@@ -85,7 +85,7 @@ export function ImportForm({ onSubmitted, autoFocus }: Props) {
           autoCorrect="off"
           spellCheck={false}
           enterKeyHint="go"
-          placeholder="Paste a YouTube video or Shorts link…"
+          placeholder="Paste a video or recipe article link…"
           value={url}
           autoFocus={autoFocus}
           onChange={(e) => {
@@ -113,7 +113,7 @@ export function ImportForm({ onSubmitted, autoFocus }: Props) {
         <Icon name="auto_fix_high" />
         {submitting ? "Sending…" : "Extract Recipe"}
       </button>
-      <p className="import-form__hint">Reads the captions (or transcribes the audio), then pulls out ingredients, steps and timers.</p>
+      <p className="import-form__hint">Reads the page, captions or audio, then pulls out ingredients, steps and timers.</p>
     </form>
   );
 }

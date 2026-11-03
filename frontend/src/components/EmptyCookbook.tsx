@@ -5,13 +5,13 @@ import "./EmptyCookbook.css";
 const STEPS = [
   {
     icon: "ios_share",
-    title: "Copy a YouTube or Shorts link",
-    text: "Tap Share on any cooking video and copy the link.",
+    title: "Copy a video or article link",
+    text: "Tap Share on any cooking video or recipe page and copy the link.",
   },
   {
     icon: "auto_fix_high",
     title: "Simmer extracts the recipe",
-    text: "Captions or audio become clean ingredients, steps and timers.",
+    text: "Page text, captions or audio become clean ingredients, steps and timers.",
   },
   {
     icon: "timer",
@@ -38,16 +38,16 @@ export function EmptyCookbook() {
         </span>
         <h1 className="empty__title">Your Cookbook is Empty</h1>
         <p className="empty__lede muted">
-          Turn your favorite YouTube cooking videos into clean, structured recipes that stay readable at arm's length on
+          Turn your favorite cooking videos and recipe articles into clean, structured recipes that stay readable at arm's length on
           your kitchen counter.
         </p>
       </section>
 
       <section className="empty__import card">
         <h2 className="empty__import-title">
-          <Icon name="play_circle" />
-          Import YouTube Recipe
-          <span className="empty__import-tag">videos or shorts</span>
+          <Icon name="link" />
+          Import a Recipe
+          <span className="empty__import-tag">videos or articles</span>
         </h2>
         <ImportForm />
       </section>

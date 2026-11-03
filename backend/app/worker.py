@@ -4,6 +4,7 @@ import time
 
 from psycopg.types.json import Jsonb
 
+from app.article import get_article, is_video_url
 from app.db import pool
 from app.structure import structure_recipe
 from app.transcribe import get_transcript, unload_model
@@ -36,11 +37,12 @@ def _finish(job_id, recipe_id=None, error=None):
 
 
 def _process(job):
-    data = get_transcript(job["url"])
-    log.info("Job %s: transcript via %s", job["id"], data["source"])
+    data = get_transcript(job["url"]) if is_video_url(job["url"]) else get_article(job["url"])
+    log.info("Job %s: text via %s", job["id"], data["source"])
     recipe = structure_recipe(data["title"], data["description"], data["transcript"])
     if not recipe.is_recipe:
-        raise ValueError("This video doesn't seem to contain a recipe")
+        # ImportJobCard.tsx matches on "doesn't seem to contain a recipe"
+        raise ValueError("This link doesn't seem to contain a recipe")
     with pool.connection() as conn:
         row = conn.execute(
             "INSERT INTO recipes (title, source_url, servings, total_time_minutes, "

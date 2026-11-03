@@ -24,7 +24,7 @@ export function IngredientList({ ingredients, checked, onToggle, onClear }: Prop
         )}
       </div>
       {ingredients.length === 0 ? (
-        <p className="muted">No ingredients were found in this video.</p>
+        <p className="muted">No ingredients were found for this recipe.</p>
       ) : (
         <>
           <p className="section-head__hint muted">Tap ingredients as you gather them to cross them off.</p>

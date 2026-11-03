@@ -25,7 +25,7 @@ export function StepList({ recipeId, recipeTitle, steps, done, onToggle }: Props
         )}
       </div>
       {steps.length === 0 ? (
-        <p className="muted">No steps were found in this video.</p>
+        <p className="muted">No steps were found for this recipe.</p>
       ) : (
         <>
           <p className="section-head__hint muted">Tap "Mark step done" as you cook.</p>

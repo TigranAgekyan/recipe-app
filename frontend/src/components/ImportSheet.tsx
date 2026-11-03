@@ -31,18 +31,18 @@ export function ImportSheet({ open, onClose }: Props) {
         <div className="sheet__head">
           <div>
             <span className="sheet__tag label-caps">
-              <Icon name="smart_display" fill />
-              Video &amp; Shorts
+              <Icon name="link" fill />
+              Videos &amp; Articles
             </span>
             <h2 id="import-sheet-title" className="headline-lg">
-              Import from YouTube
+              Import a Recipe
             </h2>
           </div>
           <button className="sheet__close" onClick={onClose} aria-label="Close">
             <Icon name="close" />
           </button>
         </div>
-        <p className="sheet__intro muted">Paste a cooking video or Shorts link to turn it into a clean recipe.</p>
+        <p className="sheet__intro muted">Paste a cooking video or recipe article link to turn it into a clean recipe.</p>
         <ImportForm onSubmitted={onClose} autoFocus />
       </div>
     </div>

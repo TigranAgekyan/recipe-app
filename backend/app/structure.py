@@ -64,9 +64,10 @@ class Recipe(BaseModel):
     steps: list[Step]
 
 
-SYSTEM = """You extract recipes from cooking video transcripts and descriptions.
+SYSTEM = """You extract recipes from cooking video transcripts and descriptions, and from web pages.
 
 Rules:
+- On a web page, use only the main recipe. Ignore comments, ads, and links to other recipes.
 - Never invent ingredient amounts. If an amount isn't stated, leave quantity and unit null.
 - If the description lists exact amounts, prefer them over the transcript.
 - Split every amount into quantity (number only) and unit (unit only).
@@ -94,9 +95,9 @@ Example ingredient conversions:
 
 def structure_recipe(title, description, transcript):
     user = (
-        f"Video title: {title}\n\n"
+        f"Title: {title}\n\n"
         f"Description:\n{description}\n\n"
-        f"Transcript:\n{transcript}"
+        f"Transcript or page text:\n{transcript}"
     )
     response = client.messages.create(
         model=MODEL,

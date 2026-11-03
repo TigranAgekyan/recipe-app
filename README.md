@@ -1,6 +1,6 @@
 # Simmer
 
-**Turn YouTube cooking videos into clean, structured recipes.**
+**Turn YouTube cooking videos and recipe articles into clean, structured recipes.**
 
 Paste a link, and Simmer pulls the transcript, has Claude extract the ingredients and steps, and saves a recipe you can actually cook from, complete with built-in step timers. It's my personal cookbook: installed on my iPhone as a web app and self-hosted on my home server.
 
@@ -14,6 +14,7 @@ Cooking videos are great to watch and terrible to cook from. You end up scrubbin
 
 **Importing**
 - Paste any YouTube link: watch, `youtu.be`, Shorts, embed or live URLs.
+- Paste a recipe article from a website. Simmer reads the page's structured recipe data, falling back to its main text.
 - Imports run in the background, with live progress. You can keep browsing, and imports started on another device show up too.
 - Videos that aren't recipes are detected and rejected instead of producing junk.
 
@@ -33,6 +34,7 @@ Cooking videos are great to watch and terrible to cook from. You end up scrubbin
  Paste URL ─→ FastAPI ─→ jobs table ─→ worker
                                          │
                        YouTube captions ─┤ (fallback: download audio → faster-whisper)
+                           Article page ─┤ (schema.org recipe data, fallback: main text)
                                          ▼
                        Claude (forced tool call → validated schema)
                                          │
@@ -42,6 +44,7 @@ Cooking videos are great to watch and terrible to cook from. You end up scrubbin
 
 1. **Queue.** `POST /import` adds a job to Postgres and returns immediately (`202`). A background worker claims jobs with `FOR UPDATE SKIP LOCKED`, so a job can never be picked up twice, and jobs interrupted by a restart go back into the queue.
 2. **Transcript.** The worker uses yt-dlp to fetch the video's title, description and captions. If there are no captions, or YouTube rate-limits the request, it downloads the audio and transcribes it locally with **faster-whisper** (CPU, int8). The model is unloaded after each job to keep memory low on the home server.
+   Links from other websites are read as articles instead: `article.py` fetches the page, refusing private and internal addresses at every redirect, then extracts its schema.org recipe data or main text.
 3. **Extraction.** The title, description and transcript go to **Claude**. The prompt forces a single `save_recipe` tool call whose input schema is generated from Pydantic models, so the response always comes back as valid, typed JSON. The rules are strict: never invent amounts, prefer exact amounts from the description, only add timers for real waiting times.
 4. **Save.** The recipe is stored with its ingredients and steps as JSONB, and the job is marked done (or failed, with the error shown in the app).
 
@@ -64,6 +67,7 @@ backend/
     main.py         REST API: recipes, imports, job status
     worker.py       background job queue
     transcribe.py   captions via yt-dlp, Whisper fallback
+    article.py      safe page fetch, recipe data and text extraction
     structure.py    Claude extraction into a typed recipe schema
     db.py           Postgres connection pool
 db/init.sql         schema: recipes and jobs
@@ -82,7 +86,7 @@ compose.yaml        db, backend, frontend and YouTube token provider
 |---|---|---|
 | `GET` | `/recipes` | List recipes, newest first |
 | `GET` | `/recipes/{id}` | Full recipe with ingredients and steps |
-| `POST` | `/import` | Queue a YouTube URL for import |
+| `POST` | `/import` | Queue a video or article URL for import |
 | `GET` | `/jobs` | Active imports plus failures from the last hour |
 | `GET` | `/jobs/{id}` | Status of one import |
 | `GET` | `/health` | Health check |

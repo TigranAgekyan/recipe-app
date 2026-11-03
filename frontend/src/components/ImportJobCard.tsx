@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import type { Job } from "../api";
+import { isVideoSource } from "../lib/source";
 import { displayUrl, isShorts, thumbnailUrl, youtubeId } from "../lib/youtube";
 import { useImports } from "../state/imports";
 import { Icon } from "./Icon";
@@ -22,7 +23,7 @@ function JobAvatar({ job }: { job: Job }) {
           onLoad={(e) => e.currentTarget.naturalWidth <= 120 && setFailed(true)}
         />
       ) : (
-        <Icon name="smart_display" />
+        <Icon name={isVideoSource(job.url) ? "smart_display" : "article"} />
       )}
     </div>
   );
@@ -50,7 +51,7 @@ function FailedDetails({ job }: { job: Job }) {
     <>
       <p className="job-card__message">
         {notRecipe
-          ? "We couldn't find a recipe in this video. Try a cooking video with spoken or written steps."
+          ? "We couldn't find a recipe at this link. Try a cooking video or a page with written steps."
           : "Something went wrong while extracting this recipe."}
       </p>
       {job.error && !notRecipe && (
@@ -76,7 +77,9 @@ function FailedDetails({ job }: { job: Job }) {
 
 export function ImportJobCard({ job }: { job: Job }) {
   const { dismiss } = useImports();
-  const kind = isShorts(job.url) ? "Short" : "video";
+  const isVideo = isVideoSource(job.url);
+  const kind = isShorts(job.url) ? "Short" : isVideo ? "video" : "article";
+  const extracting = isVideo ? "Transcribing and extracting the recipe…" : "Reading the page and extracting the recipe…";
 
   const heading = {
     pending: "Queued for import",
@@ -107,7 +110,7 @@ export function ImportJobCard({ job }: { job: Job }) {
         <div className="job-card__progress">
           <p className="job-card__stage">
             <Icon name={job.status === "pending" ? "hourglass_top" : "autorenew"} />
-            {job.status === "pending" ? "Waiting for the kitchen worker…" : "Transcribing and extracting the recipe…"}
+            {job.status === "pending" ? "Waiting for the kitchen worker…" : extracting}
           </p>
           <div className="job-card__bar" role="progressbar" aria-label="Import in progress">
             <span />

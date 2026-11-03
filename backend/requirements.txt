@@ -6,3 +6,6 @@ yt-dlp
 faster-whisper
 anthropic
 bgutil-ytdlp-pot-provider
+httpx
+recipe-scrapers
+trafilatura
