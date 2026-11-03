@@ -25,6 +25,7 @@
 }
 
 .step__text {
+  max-width: 100%;
   font-size: 19px;
   line-height: 30px;
 }

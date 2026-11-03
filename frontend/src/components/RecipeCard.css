@@ -1,5 +1,6 @@
 .recipe-card-frame {
   position: relative;
+  min-width: 0;
 }
 
 .recipe-card__favourite {
