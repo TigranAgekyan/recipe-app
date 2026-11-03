@@ -6,6 +6,7 @@ CREATE TABLE recipes (
     total_time_minutes INTEGER,
     ingredients JSONB NOT NULL DEFAULT '[]',
     steps JSONB NOT NULL DEFAULT '[]',
+    is_favourite BOOLEAN NOT NULL DEFAULT false,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 

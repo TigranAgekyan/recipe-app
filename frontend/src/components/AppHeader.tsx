@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { Icon } from "./Icon";
 import "./AppHeader.css";
@@ -5,9 +6,11 @@ import "./AppHeader.css";
 type Props = {
   /** Detail pages show a back button and a plain title instead of the wordmark. */
   title?: string;
+  /** Controls shown at the right edge of the header. */
+  actions?: ReactNode;
 };
 
-export function AppHeader({ title }: Props) {
+export function AppHeader({ title, actions }: Props) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -33,6 +36,7 @@ export function AppHeader({ title }: Props) {
         ) : (
           <h1 className="app-header__title">{title}</h1>
         )}
+        {actions}
       </div>
     </header>
   );

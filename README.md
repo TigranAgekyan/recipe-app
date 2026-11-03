@@ -21,6 +21,7 @@ Cooking videos are great to watch and terrible to cook from. You end up scrubbin
 **Cooking**
 - **Step timers.** Steps with a real waiting time ("bake 25 minutes") get a one-tap timer. Timers keep running while you browse, stay visible in a floating dock, and ring with a chime and vibration, even on iOS.
 - **Kitchen mode.** Keeps the screen awake while you cook.
+- **Favourites.** Heart a recipe and filter your cookbook down to the ones you keep coming back to, on any device.
 - **Progress tracking.** Tick off ingredients and steps as you go. Your progress survives navigating away mid-cook and resets next time.
 - **Clean ingredients.** Every ingredient is split into name, quantity, unit and note ("1 1/3 cups all-purpose flour" + "160g, sifted").
 
@@ -86,6 +87,7 @@ compose.yaml        db, backend, frontend and YouTube token provider
 |---|---|---|
 | `GET` | `/recipes` | List recipes, newest first |
 | `GET` | `/recipes/{id}` | Full recipe with ingredients and steps |
+| `PUT` | `/recipes/{id}/favourite` | Add or remove a favourite |
 | `POST` | `/import` | Queue a video or article URL for import |
 | `GET` | `/jobs` | Active imports plus failures from the last hour |
 | `GET` | `/jobs/{id}` | Status of one import |

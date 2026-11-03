@@ -17,6 +17,7 @@ export type RecipeSummary = {
   source_url: string | null;
   servings: number | null;
   total_time_minutes: number | null;
+  is_favourite: boolean;
   created_at: string;
 };
 
@@ -63,6 +64,12 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 export const api = {
   listRecipes: () => request<RecipeSummary[]>("/recipes"),
   getRecipe: (id: number) => request<Recipe>(`/recipes/${id}`),
+  setFavourite: (id: number, favourite: boolean) =>
+    request<{ id: number; is_favourite: boolean }>(`/recipes/${id}/favourite`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ favourite }),
+    }),
   getJob: (id: number) => request<Job>(`/jobs/${id}`),
   listJobs: () => request<Job[]>("/jobs"),
   startImport: (url: string) =>

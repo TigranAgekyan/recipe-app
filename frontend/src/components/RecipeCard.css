@@ -1,5 +1,15 @@
+.recipe-card-frame {
+  position: relative;
+}
+
+.recipe-card__favourite {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
 .recipe-card {
   display: block;
+  height: 100%;
   overflow: hidden;
   transition: transform 0.15s ease;
 }

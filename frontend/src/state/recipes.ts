@@ -5,6 +5,7 @@ export type RecipesState = {
   recipes: RecipeSummary[] | null;
   error: string | null;
   reload: () => void;
+  setFavourite: (id: number, favourite: boolean) => Promise<void>;
 };
 
 export const RecipesContext = createContext<RecipesState | null>(null);

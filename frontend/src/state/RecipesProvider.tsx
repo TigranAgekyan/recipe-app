@@ -31,6 +31,18 @@ export function RecipesProvider({ children }: { children: ReactNode }) {
     setAttempt((a) => a + 1);
   }, []);
 
-  const value = useMemo(() => ({ recipes, error, reload }), [recipes, error, reload]);
+  // Updates the list right away, and puts it back if the server refuses
+  const setFavourite = useCallback(async (id: number, favourite: boolean) => {
+    const apply = (value: boolean) =>
+      setRecipes((list) => list && list.map((r) => (r.id === id ? { ...r, is_favourite: value } : r)));
+    apply(favourite);
+    try {
+      await api.setFavourite(id, favourite);
+    } catch {
+      apply(!favourite);
+    }
+  }, []);
+
+  const value = useMemo(() => ({ recipes, error, reload, setFavourite }), [recipes, error, reload, setFavourite]);
   return <RecipesContext value={value}>{children}</RecipesContext>;
 }

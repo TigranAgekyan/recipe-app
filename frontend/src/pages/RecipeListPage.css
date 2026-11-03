@@ -5,6 +5,19 @@
   padding-top: 0.5rem;
 }
 
+.list-page__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.list-page__filter--on {
+  background: var(--primary-soft);
+  color: var(--on-primary-soft);
+}
+
 .list-page__intro {
   display: flex;
   flex-direction: column;

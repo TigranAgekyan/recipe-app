@@ -1,5 +1,6 @@
 import type { Recipe } from "../api";
 import { isVideoSource, sourceName } from "../lib/source";
+import { FavouriteButton } from "./FavouriteButton";
 import { Icon } from "./Icon";
 import { MetaChips } from "./MetaChips";
 import { Thumbnail } from "./Thumbnail";
@@ -17,6 +18,7 @@ export function RecipeHero({ recipe }: { recipe: Recipe }) {
             <Icon name="open_in_new" />
           </a>
         )}
+        <FavouriteButton recipe={recipe} className="hero__favourite" />
         <div className="hero__chips">
           <MetaChips totalTimeMinutes={recipe.total_time_minutes} servings={recipe.servings} variant="overlay" />
         </div>

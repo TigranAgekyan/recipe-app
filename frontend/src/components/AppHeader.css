@@ -77,3 +77,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Desktop: span the window, with the logo at the left edge */
+@media (min-width: 1024px) {
+  .app-header__inner {
+    max-width: none;
+    padding-inline: 1.5rem;
+  }
+}

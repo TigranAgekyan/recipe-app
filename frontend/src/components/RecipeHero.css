@@ -38,6 +38,11 @@
   background: var(--primary-container);
 }
 
+.hero__favourite {
+  right: 0.75rem;
+  bottom: 0.75rem;
+}
+
 .hero__chips {
   position: absolute;
   left: 0.75rem;
